@@ -44,4 +44,11 @@ public class EmployeePayrollRestMain {
 				.orElse(null);
 	}
 	
+	public void deleteEmployeePayroll(String name, IOService restIo) {
+		Employee employeeData = this.getEmployeeData(name);
+		System.out.println(this.getEmployeeData(name));
+		if (employeeData != null)
+			empPayrollList.remove(employeeData);
+	}
+	
 }
