@@ -29,4 +29,17 @@ public class EmployeePayrollRestMain {
 	public void addEmployeeToPayroll(Employee employeeData, IOService ioService) {
 		empPayrollList.add(employeeData);
 	}
+	public void updateEmployeeSalary(String name, double salary, IOService ioService) {
+		Employee employeeData = this.getEmployeeData(name);
+		System.out.println(this.getEmployeeData(name));
+		if (employeeData != null)
+			employeeData.salary = salary;
+
+	}
+
+	public Employee getEmployeeData(String name) {
+		return this.empPayrollList.stream().filter(employeeData -> employeeData.name.equalsIgnoreCase(name)).findFirst()
+				.orElse(null);
+	}
+	
 }
